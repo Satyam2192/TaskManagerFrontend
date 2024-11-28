@@ -8,7 +8,10 @@ import {
 } from '../redux/user/userSlice.js';
 
 export default function LogIn() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: 'Spacecoders@gmail.com',
+    password: '123456',
+  }); // Set default fields here
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -64,7 +67,7 @@ export default function LogIn() {
                 placeholder="email"
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#059669] focus:bg-white focus:outline-none"
                 id="email"
-                value={formData.email || ''}
+                value={formData.email}
                 onChange={handleChange}
               />
             </div>
@@ -76,7 +79,7 @@ export default function LogIn() {
                 placeholder="password"
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#059669] focus:bg-white focus:outline-none"
                 id="password"
-                value={formData.password || ''}
+                value={formData.password}
                 onChange={handleChange}
               />
             </div>
@@ -86,7 +89,7 @@ export default function LogIn() {
               className="w-full block bg-[#059669] hover:bg-[#059669] focus:bg-[#059669] text-white font-semibold rounded-lg px-4 py-3 mt-6"
             >
               {loading ? (
-                "Loding..."
+                "Loading..."
               ) : (
                 'Sign In'
               )}
